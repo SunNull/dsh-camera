@@ -15,7 +15,7 @@ plugin_manager install_bundle  target = D:\Programe\esp32\激光雕刻机\plugin
 
 `install_bundle` 会把它加进 profile 的 `package.json`，并在 `node_modules` 里做软链接。改代码后**在插件管理器里关掉再打开**即可热重载。
 
-卸载：`plugin_manager remove_bundle  target = @local/dsh-camera`（`~/.dsh/camera` 里的照片和缓存不会自动删）。
+卸载：`plugin_manager remove_bundle  target = dsh-camera`（`~/.dsh/camera` 里的照片和缓存不会自动删）。
 
 ### B. GitHub tarball（分享给别人最省事）
 
@@ -57,11 +57,31 @@ git push -u origin main
 
 ## 3. 发到 npm（想进插件市场必须先做这一步）
 
-1. **改名**：`@local/dsh-camera` 发不出去（`@local` 是保留 scope）。改成 `@你的npm用户名/dsh-camera` 或裸名 `dsh-camera`。
-2. **两处同步**：`package.json` 的 `name` **和** `cordis.patch.yml` 里那行的 `name` 必须是同一个字符串 —— Loader 按包名解析这一行，写错的表现是"插件在列表里但工具不出现"。
-3. 删掉 `"private": true`（留着 `npm publish` 会直接拒绝）。
-4. `npm publish --access public`。
-5. 版本：新增能力 → minor；修 bug → patch；破坏性改配置字段 → major。
+包名已经是 `dsh-camera`（用 `node scripts/rename.mjs <新名>` 一次改全，别手改——Loader 按包名解析 patch 那一行，少改一处就是"插件在列表里有、工具一个都不出现"）。
+
+剩下两步，第一步只能你本人做：
+
+```bash
+npm login                      # 或 npm config set //registry.npmjs.org/:_authToken=<token>
+npm pkg delete private         # 留着 private 的话 npm publish 会直接拒绝
+npm publish --access public
+```
+
+发布前跑一次自检，CI 也跑同一份逻辑：
+
+```bash
+npm run check                  # = node scripts/check-manifest.mjs
+npm pack --dry-run             # 看实际打包清单
+```
+
+版本语义：新增能力 → minor；修 bug → patch；破坏性改配置字段 → major。
+
+已装过旧名字的 profile 要重装：
+
+```
+plugin_manager remove_bundle  → 旧包名
+plugin_manager install_bundle → 本目录 / tarball / 新包名
+```
 
 ## 4. 进插件市场（可选）
 

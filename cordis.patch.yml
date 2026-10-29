@@ -4,7 +4,7 @@
 # 这份 patch 属于本 bundle，直接改下面的 config 即可；升级 harness 不会覆盖。
 - insert:
     - id: dsh-camera
-      name: '@local/dsh-camera'
+      name: 'dsh-camera'
       config:
         # 机位选择：auto 时优先已连接的运动相机，其次笔记本内置摄像头
         defaultCamera: auto

@@ -1,0 +1,30 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 语法检查
+        run: |
+          for file in index.js lib/*.js scripts/*.mjs; do
+            node --check "$file"
+          done
+          echo "syntax ok"
+
+      - name: bundle 自检
+        run: node scripts/check-manifest.mjs
+
+      - name: 打包内容（不发布）
+        run: npm pack --dry-run

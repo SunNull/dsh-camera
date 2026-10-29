@@ -117,7 +117,7 @@ camera_clip({ seconds: 3 })
 
 改 `config` 或代码后，在插件管理器里把这一行**关掉再打开**即可热重载（实测生效，不必重启 harness）；重启 harness 也行。
 
-安装位置是 `%DSH_PROFILE_DIR%\node_modules\@local\dsh-camera` → 指向本目录的符号链接，**别移动本目录**；要搬家重新 `install_bundle`。
+安装位置是 `%DSH_PROFILE_DIR%\node_modules\dsh-camera` → 指向本目录的符号链接，**别移动本目录**；要搬家重新 `install_bundle`。改包名用 `node scripts/rename.mjs <新名>`（一次同步 package.json、patch 行名和文档），别手改。
 
 安装方式、上传 GitHub、发 npm、进插件市场的完整步骤见 [docs/PUBLISHING.md](docs/PUBLISHING.md)。
 

@@ -1,5 +1,5 @@
 {
-  "name": "@local/dsh-camera",
+  "name": "dsh-camera",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -42,6 +42,13 @@
   ],
   "engines": {
     "node": ">=18"
+  },
+  "scripts": {
+    "check": "node scripts/check-manifest.mjs",
+    "rename": "node scripts/rename.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dshTarget": "0.2.1-rc.3",
   "dsh": {
