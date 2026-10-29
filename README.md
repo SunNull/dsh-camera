@@ -13,10 +13,10 @@ camera_clip({ seconds: 5 }) // 录 5 秒 mp4，第一帧当封面内联
 
 ```
 plugin_manager → install_bundle →
-https://github.com/SunNull/dsh-camera/archive/refs/heads/main.tar.gz
+https://github.com/SunNull/dsh-camera/archive/refs/tags/v1.0.0.tar.gz
 ```
 
-本机开发也可以直接指向仓库目录（`install_bundle` 接受绝对路径）。前提：DSH 0.2.1-rc.x + PATH 里有 `ffmpeg`。装完在插件管理器里默认启用，无需构建、无 npm 依赖。
+固定的 tag 最稳；想跟最新代码就换成 `.../archive/refs/heads/main.tar.gz`。本机开发也可以直接指向克隆目录（`install_bundle` 接受绝对路径）。前提：DSH 0.2.1-rc.x + PATH 里有 `ffmpeg`。装完在插件管理器里默认启用，无需构建、无 npm 依赖——**不需要 npm 账号**。
 
 多机位时才需要传 `camera`：
 

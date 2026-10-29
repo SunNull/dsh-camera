@@ -55,19 +55,32 @@ git push -u origin main
 
 放在 monorepo 里也行：市场索引有 `repository.directory` 字段指向子目录；但 tarball 安装要指到含 `package.json` 的那层。
 
-## 3. 发到 npm（想进插件市场必须先做这一步）
+## 3. 发到 npm（**可选**，只有想进插件市场才需要）
+
+先说结论：**没有 npm 账号也完全能分发**。第 1、2 节做完，别人就能用 GitHub tarball 安装；`v1.0.0` 这个 tag 已经有了固定的归档 URL，实测能装：
+
+```
+https://github.com/SunNull/dsh-camera/archive/refs/tags/v1.0.0.tar.gz
+```
+
+npm 唯一的作用是让插件市场能索引到你（市场里 928 个条目全部指向 `registry.npmjs.org`）。
+
+### 3.1 要发的话，先注册（一次性，约 5–10 分钟）
+
+1. <https://www.npmjs.com/signup> 注册，**验证邮箱**——没验证邮箱不能发布（[官方文档](https://docs.npmjs.com/creating-a-new-npm-user-account)）；
+2. 打开 **2FA**：Account → Two-Factor Authentication → 选 authenticator app。npm 现在强制要求：发布必须启用 2FA 或使用"带 bypass 2FA 的 granular access token"（[官方文档](https://docs.npmjs.com/requiring-2fa-for-package-publishing-and-settings-modification/)）；
+3. 本地登录：`npm login`（浏览器或 TOTP 交互，我不会替你操作）。
+
+### 3.2 发布
 
 包名已经是 `dsh-camera`（用 `node scripts/rename.mjs <新名>` 一次改全，别手改——Loader 按包名解析 patch 那一行，少改一处就是"插件在列表里有、工具一个都不出现"）。
 
-剩下两步，第一步只能你本人做：
-
 ```bash
-npm login                      # 或 npm config set //registry.npmjs.org/:_authToken=<token>
-npm pkg delete private         # 留着 private 的话 npm publish 会直接拒绝
+npm pkg delete private         # 留着 private，publish 会直接拒绝
 npm publish --access public
 ```
 
-发布前跑一次自检，CI 也跑同一份逻辑：
+发布前跑一次自检（CI 跑的是同一份逻辑）：
 
 ```bash
 npm run check                  # = node scripts/check-manifest.mjs
