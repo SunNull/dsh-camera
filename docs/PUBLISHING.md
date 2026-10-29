@@ -96,6 +96,22 @@ plugin_manager remove_bundle  → 旧包名
 plugin_manager install_bundle → 本目录 / tarball / 新包名
 ```
 
+### 3.3 注意：registry 通，但 npm 网站可能打不开
+
+实测记录（2026-10，中国大陆网络 + 本地代理）：
+
+| 端点 | 结果 | 含义 |
+| --- | --- | --- |
+| `registry.npmjs.org/dsh-camera` | **404** | API 通（404 = 包不存在） |
+| `registry.npmjs.org/-/whoami` | **401** | API 通（401 = 缺凭证） |
+| `www.npmjs.com/`、`/signup` | **403**（直连和走代理都是 403） | **注册网页被挡** |
+
+结论：**发布通道是通的，卡住的只是网页注册**。三条可选路径：
+
+1. 换个能打开 `www.npmjs.com` 的网络把账号注册一次性做完（手机热点 / 换代理节点 / 别人的电脑），之后在本机 `npm login` 拿到 token，`npm publish` 走 registry 没问题；
+2. 本机试 `npm adduser --auth-type=legacy`——它打的是 registry API 而不是网页，理论上可行（npm 是否仍允许 API 建号不保证）；
+3. **不用 npm**：见第 1 节，GitHub tarball 已经是完整的分发通道，唯一损失是进不了插件市场。
+
 ## 4. 进插件市场（可选）
 
 市场索引里的一个真实条目长这样（本机 `plugin_market` 抓的）：
