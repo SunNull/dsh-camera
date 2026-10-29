@@ -1,5 +1,7 @@
 # dsh-camera
 
+[![check](https://github.com/SunNull/dsh-camera/actions/workflows/check.yml/badge.svg)](https://github.com/SunNull/dsh-camera/actions/workflows/check.yml)
+
 给 DeepSeek Harness 的每个会话两台工具：`camera_photo()` 拍一张、`camera_clip()` 录几秒。**不传参数就能用**，画面直接进对话（照片本身 / 视频第一帧），不是一句「已保存」。
 
 ```js
