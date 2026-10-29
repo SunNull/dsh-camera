@@ -114,6 +114,26 @@ plugin_manager install_bundle → 本目录 / tarball / 新包名
 
 ## 4. 进插件市场（可选）
 
+### 4.0 不用 npm 也能进市场：git 源
+
+市场索引的 `versions[].source` 支持两种类型，`npm` 只是其中一种：
+
+```json
+{ "type": "npm", "registry": "https://registry.npmjs.org/" }
+{ "type": "git", "url": "https://github.com/SunNull/dsh-camera", "commit": "<40 位小写 sha>", "path": "可选子目录" }
+```
+
+`git` 源会被拼成 `git+https://github.com/...git#<commit>` 交给 pnpm，**完全不经过 npm**。所以没有 npm 账号也很好办：把这个仓库自己的 `market/index.json` 作为索引源就行。
+
+- 索引文件：[market/index.json](../market/index.json)，由 `node scripts/build-market-index.mjs` 生成
+- 生成脚本用 **DSH 自带的官方 parser** 校验（`parseMarketIndex`），能过就是真的能过
+- 在 DSH 里：设置 → 插件市场 → 添加索引源 → 填 `https://raw.githubusercontent.com/SunNull/dsh-camera/main/market/index.json`
+- 发布新版本：改 `scripts/build-market-index.mjs` 里的 `version` / `commit` / `publishTimestamp`，重跑脚本，提交
+
+注意：索引源 URL 必须**从 DSH 所在主机能访问**。raw.githubusercontent.com 在国内常被墙；如果拉不到，把 `market/index.json` 放到任意可达的静态地址（Gitee、自己的 OSS、内网静态服务）再用那个 URL 即可——格式不变。
+
+### 4.1 走 npm 的路子（已经能上网时）
+
 市场索引里的一个真实条目长这样（本机 `plugin_market` 抓的）：
 
 ```json

@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "title": {
+    "en": "SunNull plugins",
+    "zh": "SunNull 插件源"
+  },
+  "description": {
+    "en": "Plugins published straight from git — no npm account needed.",
+    "zh": "直接从 git 发布的插件，不需要 npm 账号。"
+  },
+  "metadata": {
+    "categories": {
+      "tools": {
+        "title": {
+          "en": "Tools",
+          "zh": "工具"
+        }
+      },
+      "vision": {
+        "title": {
+          "en": "Vision",
+          "zh": "视觉"
+        }
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-camera",
+      "title": {
+        "en": "Camera Capture",
+        "zh": "摄像头拍照"
+      },
+      "description": {
+        "en": "camera_photo / camera_clip / camera_devices: hand real-world images to the model via ffmpeg (laptop webcam or USB action camera).",
+        "zh": "camera_photo / camera_clip / camera_devices：用 ffmpeg 拍笔记本摄像头或 USB 运动相机，画面直接进对话。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkNhbWVyYSI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImNhbUJvZHkiIHgxPSI4IiB5MT0iNiIgeDI9IjU2IiB5Mj0iNTgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjM2Y0YTYzIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFiMjIzMyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iY2FtTGVucyIgeDE9IjIyIiB5MT0iMjIiIHgyPSI0MiIgeTI9IjQyIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzdlZTBmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTUiIHN0b3AtY29sb3I9IiMzYjgyZjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMWUzYThhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB4PSI0IiB5PSIxNiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjM2IiByeD0iOSIgZmlsbD0idXJsKCNjYW1Cb2R5KSIvPgogIDxwYXRoIGQ9Ik0yMiAxNmwzLTZoMTRsMyA2eiIgZmlsbD0iIzJiMzQ0OCIvPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzQiIHI9IjEzIiBmaWxsPSIjMGYxNTIyIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSIzNCIgcj0iMTAiIGZpbGw9InVybCgjY2FtTGVucykiLz4KICA8Y2lyY2xlIGN4PSIzMiIgY3k9IjM0IiByPSI0LjUiIGZpbGw9IiMwYjEyMjAiIG9wYWNpdHk9IjAuNTUiLz4KICA8Y2lyY2xlIGN4PSIyOCIgY3k9IjMwIiByPSIyLjYiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuODUiLz4KICA8cmVjdCB4PSI0NiIgeT0iMjEiIHdpZHRoPSI5IiBoZWlnaHQ9IjQiIHJ4PSIyIiBmaWxsPSIjOGVmMGI0Ii8+Cjwvc3ZnPgo=",
+      "author": "SunNull",
+      "homepage": "https://github.com/SunNull/dsh-camera#readme",
+      "repository": {
+        "url": "https://github.com/SunNull/dsh-camera"
+      },
+      "metadata": {
+        "category": "tools",
+        "keywords": [
+          "camera",
+          "webcam",
+          "ffmpeg",
+          "vision"
+        ],
+        "labels": []
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793283631,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/SunNull/dsh-camera",
+            "commit": "aa4660db2167a0262b7e3d3413b58c7dda15ac92"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.2"
+          }
+        }
+      ]
+    }
+  ]
+}
