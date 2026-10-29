@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Camera Capture",
+    "description": "Adds camera_photo / camera_devices tools: shoot a live photo from the laptop webcam or a USB action camera (Insta360 Ace Pro 2 webcam mode) and hand the image straight to the model."
+  }
+}

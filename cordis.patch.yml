@@ -1,0 +1,31 @@
+# dsh-camera bundle patch
+#
+# 插入 dsh-camera 插件行：给每个会话提供摄像头拍照/录像 + 桌面抓屏/录屏。
+# 这份 patch 属于本 bundle，直接改下面的 config 即可；升级 harness 不会覆盖。
+- insert:
+    - id: dsh-camera
+      name: '@local/dsh-camera'
+      config:
+        # 机位选择：auto 时优先已连接的运动相机，其次笔记本内置摄像头
+        defaultCamera: auto
+        # 抓 10 帧、留最后一帧：等自动曝光稳定，避免拍到偏暗的第一帧
+        frames: 10
+        # 拍到疑似黑帧时最多抓到多少帧再判定
+        maxFrames: 40
+        # 不指定分辨率时自动挑设备支持的最高档（Ace Pro 2 默认档只有 640x360）
+        preferLargestMode: true
+        # JPEG 质量：2 最好 / 31 最差
+        jpegQuality: 2
+        # 把画面直接作为图片交给模型
+        inlineImage: true
+        # 在系统提示里加一句「要看现场就取画面」
+        promptHint: true
+        # 录像默认时长（秒）与 CRF（越小越清晰）
+        clipSeconds: 5
+        clipQuality: 23
+        # 抓屏/录屏帧率
+        screenFramerate: 15
+        # 录像后抽第一帧当封面
+        poster: true
+        # 桌面抓屏/录屏工具：默认关闭，只要摄像头。要用就改 true 并重载插件。
+        enableScreenTools: false

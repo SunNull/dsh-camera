@@ -1,0 +1,52 @@
+{
+  "name": "@local/dsh-camera",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Camera capture tools for DeepSeek Harness: shoot a photo from the laptop webcam or a USB action camera (Insta360 Ace Pro 2 webcam mode) and hand the image to the model.",
+  "license": "MIT",
+  "author": "SunNull",
+  "homepage": "https://github.com/SunNull/dsh-camera#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SunNull/dsh-camera.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SunNull/dsh-camera/issues"
+  },
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "lib/*.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "docs/*.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "camera",
+    "webcam",
+    "ffmpeg",
+    "vision",
+    "screenshot"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dshTarget": "0.2.1-rc.3",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

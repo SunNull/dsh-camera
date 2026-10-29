@@ -1,0 +1,14 @@
+# 运行期产物（照片/视频/缓存），不要进仓库
+shots/
+*.jpg
+*.mp4
+.camera-cache.json
+
+# 依赖与日志
+node_modules/
+*.log
+npm-debug.log*
+
+# 系统垃圾
+.DS_Store
+Thumbs.db

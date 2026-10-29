@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Camera">
+  <defs>
+    <linearGradient id="camBody" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3f4a63"/>
+      <stop offset="1" stop-color="#1b2233"/>
+    </linearGradient>
+    <linearGradient id="camLens" x1="22" y1="22" x2="42" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7ee0ff"/>
+      <stop offset="0.55" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="16" width="56" height="36" rx="9" fill="url(#camBody)"/>
+  <path d="M22 16l3-6h14l3 6z" fill="#2b3448"/>
+  <circle cx="32" cy="34" r="13" fill="#0f1522"/>
+  <circle cx="32" cy="34" r="10" fill="url(#camLens)"/>
+  <circle cx="32" cy="34" r="4.5" fill="#0b1220" opacity="0.55"/>
+  <circle cx="28" cy="30" r="2.6" fill="#ffffff" opacity="0.85"/>
+  <rect x="46" y="21" width="9" height="4" rx="2" fill="#8ef0b4"/>
+</svg>

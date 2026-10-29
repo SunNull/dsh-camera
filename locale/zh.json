@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "摄像头拍照",
+    "description": "给会话提供 camera_photo / camera_devices：调用笔记本内置摄像头或 USB 运动相机（Insta360 Ace Pro 2 的 USB 摄像头模式）实时拍照，并把照片直接交给模型。"
+  }
+}
